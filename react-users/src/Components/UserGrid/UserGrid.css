@@ -1,0 +1,7 @@
+.UserGrid__wrapmain {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 80%;
+  margin: 20px auto;
+}
