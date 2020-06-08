@@ -7,7 +7,7 @@ import { UserCard } from "./UserCard/UserCard"
 const UserGrid = () => {
     return (
         <div className="UserGrid__wrapmain">
-            {data.results.slice(0, 8).map(user => (
+            {data.results.map(user => (
                 <UserCard
                     key={user.login.uuid}
                     image={user.picture.large}

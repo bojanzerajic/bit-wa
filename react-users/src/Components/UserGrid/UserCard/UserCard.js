@@ -10,10 +10,8 @@ const UserCard = (props) => {
                 <div className='UserCard__nameWrapper'>
                     <p>{props.name}</p>
                 </div>
-                <div className="UserCard__EmailDob">
-                    <p>Email:{props.email}</p>
-                    <p>Date of birth:{props.dateOfBirth}</p>
-                </div>
+                <p>email:{props.email}</p>
+                <p>Date of birth:{props.dateOfBirth}</p>
             </div>
         </div>
     )
