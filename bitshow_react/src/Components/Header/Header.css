@@ -1,0 +1,10 @@
+.Header {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+}
+.Header input {
+  height: 30px;
+  margin: 10px;
+}

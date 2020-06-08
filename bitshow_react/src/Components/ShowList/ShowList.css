@@ -1,0 +1,9 @@
+.ShowList__headline {
+  text-align: center;
+}
+.ShowList__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
