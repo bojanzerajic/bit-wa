@@ -1,0 +1,6 @@
+.News__wrapper {
+  list-style-type: decimal;
+}
+.News__ListItem {
+  border-bottom: 1px solid black;
+}

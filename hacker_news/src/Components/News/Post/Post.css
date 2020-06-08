@@ -1,0 +1,6 @@
+.Post__ListWrapper {
+  display: flex;
+}
+.Post__parag {
+  padding-left: 5px;
+}
