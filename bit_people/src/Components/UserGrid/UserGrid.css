@@ -1,0 +1,17 @@
+.UserGrid__wrapper {
+  width: 30%;
+}
+.UserGrid__container {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+.UserGrid__wrapper img {
+  width: 100%;
+}
+.active {
+  display: none;
+}
