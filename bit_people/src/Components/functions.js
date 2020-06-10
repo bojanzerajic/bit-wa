@@ -13,4 +13,5 @@ const dateTransform = (date) => {
     return `${day}.${month}.${year}.`
 }
 
+
 export { emailShortage, dateTransform }

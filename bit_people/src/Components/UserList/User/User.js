@@ -11,14 +11,19 @@ class User extends React.Component {
         super(props)
         this.state = {}
     }
-
-
-
+    
     render() {
-        return <div className='user__wrapper'>
-            <img src={this.props.image} className="User__image" alt="avatar"></img>
-            <p>name: {this.props.name} <br></br> <MdMail />email: {emailShortage(this.props.email)} <br></br> <FaBirthdayCake />date of birth: {dateTransform(this.props.dob)}</p>
-        </div>
-    }
+        if (this.props.gender === 'female') {
+            return <div className='user__wrapper femaleUser'>
+                <img src={this.props.image} className="User__image" alt="avatar"></img>
+                <p>name: {this.props.name} <br></br> <MdMail />email: {emailShortage(this.props.email)} <br></br> <FaBirthdayCake />date of birth: {dateTransform(this.props.dob)}</p>
+            </div >
+        } else {return <div className='user__wrapper'>
+        <img src={this.props.image} className="User__image" alt="avatar"></img>
+        <p>name: {this.props.name} <br></br> <MdMail />email: {emailShortage(this.props.email)} <br></br> <FaBirthdayCake />date of birth: {dateTransform(this.props.dob)}</p>
+    </div >
+
+        }
+    } 
 }
 export { User }                    

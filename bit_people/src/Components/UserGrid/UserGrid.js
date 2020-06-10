@@ -1,6 +1,6 @@
 import React from 'react'
 import "./UserGrid.css"
-import { emailShortage, dateTransform } from '../functions'
+import { Grid } from "./Grid/Grid"
 
 
 class UserGrid extends React.Component {
@@ -10,9 +10,7 @@ class UserGrid extends React.Component {
     }
     render() {
         return <div className='UserGrid__container'>
-            {this.props.data.map(item => <div className="UserGrid__wrapper">
-                <img src={item.picture.large} alt="large"></img>
-                <p>{item.name.first} <br></br> {emailShortage(item.email)} <br></br> {dateTransform(item.dob.date)}</p></div>)}
+            {this.props.data.map(item => <div className="UserGrid__wrapper"><Grid name={item.name.first} image={item.picture.large} mail={item.email} date={item.dob.date} gender={item.gender} /></div>)}
         </div>
     }
 }

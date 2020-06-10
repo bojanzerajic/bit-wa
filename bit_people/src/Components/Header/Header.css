@@ -10,3 +10,12 @@
 .Header__btn {
   height: 30px;
 }
+.header__buttonWrapper {
+  width: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header__buttonWrapper svg {
+  font-size: large;
+}

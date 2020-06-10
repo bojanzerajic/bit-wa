@@ -2,40 +2,66 @@ import React from 'react';
 import './App.css';
 import { Footer } from './Components/Footer/Footer'
 import { Header } from './Components/Header/Header'
-import { UserList } from './Components/UserList/UserList'
-import { UserGrid } from './Components/UserGrid/UserGrid'
-
+import { View } from './Components/View'
+import { Search } from './Components/Search/Search'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       users: [],
-      isListView: true
+      isListView: JSON.parse(localStorage.getItem('isListView')),
+      search: "",
+      isLoading: false
     }
     this.changeView = this.changeView.bind(this)
+    this.loadUsers = this.loadUsers.bind(this)
+    this.searchField = this.searchField.bind(this)
+
   }
-  changeView = (event) => {
-    if (this.state.isListView) {
-      this.setState({ isListView: false })
+  searchField = (event) => {
+    const $input = event.target
+    this.setState({ search: $input.value })
+    const $filteredUsers = this.state.users.filter(item =>
+      item.name.first.toLowerCase().includes(this.state.search.toLowerCase()) ||
+      item.name.last.toLowerCase().includes(this.state.search.toLowerCase())
+    )
+    if ($input.value === "") {
+      this.setState({ users: JSON.parse(localStorage.getItem('users')) })
     } else {
-      this.setState({ isListView: true })
+      this.setState({ users: $filteredUsers })
     }
   }
 
-
-  render() {
-    return <div>
-      <Header isListView={this.state.isListView} changeView={this.changeView} />
-      {this.state.isListView ? <div id="List"><UserList users={this.state.users} /></div> : <div><UserGrid data={this.state.users} /></div>}
-      <Footer />
-    </div >
+  changeView = () => {
+    this.setState({ isListView: !this.state.isListView }, () => {
+      localStorage.setItem('isListView', this.state.isListView)
+    })
   }
-  componentDidMount() {
+
+  loadUsers = () => {
+    this.setState({ isLoading: true })
     fetch('https://randomuser.me/api/?results=15')
       .then(res => res.json())
-      .then(data => this.setState({ users: data.results }))
+      .then(data => this.setState({ users: data.results }, () => { localStorage.setItem('users', JSON.stringify(data.results)) }))
+      .finally(() => this.setState({ isLoading: false }))
+  }
+
+  render() {
+    return (
+      <div>
+        < Header isListView={this.state.isListView} refresh={this.loadUsers} changeView={this.changeView} />
+        < Search value={this.state.search} searchFunction={this.searchField} />
+        <View isListView={this.state.isListView} users={this.state.users} isLoading={this.state.isLoading} />
+        < Footer />
+      </div >
+    )
+  }
+  componentDidMount() {
+    if (localStorage.getItem('users') === null) {
+      this.loadUsers();
+    } else { this.setState({ users: JSON.parse(localStorage.getItem('users')) }) }
+
   }
 }
-
 export default App;
