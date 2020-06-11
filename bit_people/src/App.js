@@ -4,6 +4,7 @@ import { Footer } from './Components/Footer/Footer'
 import { Header } from './Components/Header/Header'
 import { View } from './Components/View'
 import { Search } from './Components/Search/Search'
+import { Counter } from "./Components/Counter"
 
 class App extends React.Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class App extends React.Component {
       users: [],
       isListView: JSON.parse(localStorage.getItem('isListView')),
       search: "",
-      isLoading: false
+      isLoading: false,
+      isUserFound: true
     }
     this.changeView = this.changeView.bind(this)
     this.loadUsers = this.loadUsers.bind(this)
@@ -26,8 +28,15 @@ class App extends React.Component {
       item.name.first.toLowerCase().includes(this.state.search.toLowerCase()) ||
       item.name.last.toLowerCase().includes(this.state.search.toLowerCase())
     )
+
+    if ($filteredUsers.length === 0) {
+      console.log($filteredUsers.length);
+      this.setState({ isUserFound: false })
+    }
+
     if ($input.value === "") {
-      this.setState({ users: JSON.parse(localStorage.getItem('users')) })
+      this.setState({ users: JSON.parse(localStorage.getItem('users')), isUserFound: true })
+
     } else {
       this.setState({ users: $filteredUsers })
     }
@@ -51,7 +60,8 @@ class App extends React.Component {
     return (
       <div>
         < Header isListView={this.state.isListView} refresh={this.loadUsers} changeView={this.changeView} />
-        < Search value={this.state.search} searchFunction={this.searchField} />
+        < Search value={this.state.search} searchFunction={this.searchField} isUserFound={this.state.isUserFound} />
+        <Counter users={this.state.users} />
         <View isListView={this.state.isListView} users={this.state.users} isLoading={this.state.isLoading} />
         < Footer />
       </div >
