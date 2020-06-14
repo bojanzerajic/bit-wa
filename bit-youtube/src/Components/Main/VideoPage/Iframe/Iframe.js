@@ -2,10 +2,10 @@ import React from 'react'
 import './Iframe.css'
 
 const Iframe = (props) => {
-    if (props.linkId !== '') {
+    if (props.videoId !== '') {
         return (
-            <iframe src={`https://www.youtube.com/embed/${props.linkId}`} height="400px" width="500px"></iframe>
-            
+            <iframe src={`https://www.youtube.com/embed/${props.videoId}`} height="400px" width="500px"></iframe>
+
         )
     } else { return null }
 }

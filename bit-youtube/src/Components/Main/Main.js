@@ -14,13 +14,14 @@ class Main extends React.Component {
     }
 
     playVideo = (event) => {
-        let videoId = event.target.id.videoId;
+        let videoId = event.target.getAttribute('id');
+        console.log(videoId);
         this.setState({ videoId: videoId, videos: [] });
     }
 
     getData = (event) => {
         if (event.keyCode === 13) {
-            const key = 'AIzaSyCuai-IQHou-wl4N6ZrZqP1r8zQNvu2p1E';
+            const key = 'AIzaSyADTLCcOcxT94MLTlJdJdM3MykSOI8KqtE';
             let text = event.target.value;
             fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${text}&key=${key}`)
                 .then(res => res.json())

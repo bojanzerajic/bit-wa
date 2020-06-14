@@ -7,7 +7,7 @@ class PlayList extends React.Component {
         if (this.props.videos !== []) {
             return (
                 <div>
-                    {this.props.videos.map(item => <SingleVideo playVideo={this.props.playVideo} image={item.snippet.thumbnails.default.url} title={item.snippet.title} description={item.snippet.description} channelTitle={item.snippet.channelTitle} />)}
+                    {this.props.videos.map((item, i) => <SingleVideo key={i} id={item.id.videoId} playVideo={this.props.playVideo} image={item.snippet.thumbnails.default.url} title={item.snippet.title} description={item.snippet.description} channelTitle={item.snippet.channelTitle} />)}
 
                 </div>
             )
