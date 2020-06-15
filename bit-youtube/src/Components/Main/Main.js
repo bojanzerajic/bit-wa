@@ -13,15 +13,13 @@ class Main extends React.Component {
         }
     }
 
-    playVideo = (event) => {
-        let videoId = event.target.getAttribute('id');
-        console.log(videoId);
-        this.setState({ videoId: videoId, videos: [] });
+    playVideo = (id) => {
+        this.setState({ videoId: id, videos: [] });
     }
 
     getData = (event) => {
         if (event.keyCode === 13) {
-            const key = 'AIzaSyADTLCcOcxT94MLTlJdJdM3MykSOI8KqtE';
+            const key = 'AIzaSyA9m33SXEPnSnmI8j-1h0LL1TdCn5P1Wqg';
             let text = event.target.value;
             fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${text}&key=${key}`)
                 .then(res => res.json())
@@ -37,7 +35,7 @@ class Main extends React.Component {
                 {
                     !this.state.videoId
                         ? <PlayList playVideo={this.playVideo} videos={this.state.videos} />
-                        : <VideoPage id={this.state.videoId} />
+                        : <VideoPage id={this.state.videoId} getId={this.playVideo} />
                 }
             </div>
         )

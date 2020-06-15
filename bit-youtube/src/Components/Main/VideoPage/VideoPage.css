@@ -1,0 +1,10 @@
+.VideoPage__container {
+    position: relative;
+}
+.VideoPage__relatedVideos {
+    width: 600px;
+    height: 800px;
+    position: absolute;
+    top: -5px;
+    right: 30px;
+}

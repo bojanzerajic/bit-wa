@@ -4,8 +4,9 @@ import './Iframe.css'
 const Iframe = (props) => {
     if (props.videoId !== '') {
         return (
-            <iframe src={`https://www.youtube.com/embed/${props.videoId}`} height="400px" width="500px"></iframe>
-
+            <div className='Iframe__wrapper'>
+                <iframe src={`https://www.youtube.com/embed/${props.videoId}`} height="400px" width="600px"></iframe>
+            </div>
         )
     } else { return null }
 }
