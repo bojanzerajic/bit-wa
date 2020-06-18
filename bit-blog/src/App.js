@@ -10,6 +10,7 @@ import { Author } from './Components/Author/Author'
 import { Albums } from './Components/Albums/Albums'
 import { AlbumPreview } from './Components/AlbumPreview/AlbumPreview'
 import { Header } from './Components/Header/Header'
+import {Footer} from './Components/Footer/Footer'
 
 class App extends React.Component {
   constructor(props) {
@@ -29,8 +30,9 @@ class App extends React.Component {
           <Route exact path='/albums' component={Albums} />
           <Route exact path='/author/:id' component={Author} />
           <Route exact path='/single-post/:id' component={SinglePost} />
-          <Route exact path='/create-post' component={CreatePost} />
+          <Route exact path='/posts/new' component={CreatePost} />
         </Switch>
+        <Footer />
       </div>
     )
   }

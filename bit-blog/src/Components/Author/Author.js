@@ -5,22 +5,16 @@ class Author extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            singleAuthor: [],
-            image: []
+            singleAuthor: []
         }
     }
 
     componentDidMount() {
         fetch(`https://jsonplaceholder.typicode.com/users/${this.props.match.params.id}`)
             .then(res => res.json())
-            .then(author => {
-                this.setState({ singleAuthor: author }, () => console.log(this.state.singleAuthor) );
-
-                fetch(`https://jsonplaceholder.typicode.com/photos/`)
-                    .then(res => res.json())
-                    .then(image => console.log(image))
-            });
+            .then(author => this.setState({ singleAuthor: author }, () => console.log(this.state.singleAuthor)))
     }
+
 
     render() {
         return <div className='Author__container'>
@@ -34,11 +28,19 @@ class Author extends React.Component {
                     <p> phone: {this.state.singleAuthor.phone} </p>
                 </div>
             </div>
+            <div className='Author__address'>
+                <div className='Author__address_text'>
+                    <h2>Address</h2>
+                    <p>street:   </p>
+                    <p>city: </p>
+                    <p>zipcode: </p>
+                </div>
+                <img src='https://www.dsdinc.com/wp-content/uploads/2017/08/map-placeholder.jpg' alt='bla bla' />
+            </div>
             <div>
-                <h2>Address</h2>
-                <p>street:   </p>
-                <p>city: </p>
-
+                <h2>Company</h2>
+                <p>name: </p>
+                <p>slogan: </p>
             </div>
         </div>
     }
