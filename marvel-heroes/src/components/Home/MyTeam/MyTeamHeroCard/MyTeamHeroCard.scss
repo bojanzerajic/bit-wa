@@ -1,0 +1,22 @@
+.MyTeamHeroCard__container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+  position: relative;
+  p {
+    color: black;
+  }
+  .delete {
+    display: none;
+  }
+}
+
+.MyTeamHeroCard__container:hover {
+  cursor: pointer;
+  .delete {
+    display: block;
+    position: absolute;
+    left: 100px;
+    height: 40px;
+  }
+}

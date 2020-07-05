@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+.HeroCard__container {
+    border: 1px solid black;
+    text-align: center;
+    margin: 5px;
+    img {
+        width: 80%;
+        object-fit: contain;
+        object-position: center;
+        margin-bottom: 10px;
+    }
+    h4 {
+        margin: 0px;
+    }
+}
+.HeroCard__buttonWrapper {
+    margin-bottom: 10px;
+    button {
+        width: 57px;
+        margin: 0px 25px;
+        border-radius: 14px;
+        border: none;
+    }
+}
