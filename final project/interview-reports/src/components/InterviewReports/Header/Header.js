@@ -6,9 +6,14 @@ const Header = () => {
   return (
     <div className={styles.wrapper}>
       <h1>Interview Reports</h1>
-      <Link className={styles.btn} to="/">
-        Candidates
+      <div className={styles.buttonWrap}>
+        <Link className={styles.btn} to="/">
+          Candidates
       </Link>
+        <Link className={styles.btn} to="/admin">
+          Login
+      </Link>
+      </div>
     </div>
   );
 };

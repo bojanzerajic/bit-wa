@@ -17,7 +17,8 @@ class SingleSelectedCandidate extends React.Component {
       >
         <div className="row">
           <div className={`${style.img} col-lg-2`}>
-            <img src={this.props.candidate.avatar} alt="" />
+            {this.props.candidate.avatar !== '' ? <img src={this.props.candidate.avatar} alt="" />
+              : <img src='https://cdn.shopify.com/s/files/1/0066/0032/7268/products/product-image-1045467446_1200x1200.jpg?v=1569937306' alt="" />}
           </div>
           <div className="col-lg-10">
             <h2 className="col-lg-12">{this.props.candidate.name}</h2>

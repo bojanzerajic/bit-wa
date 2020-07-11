@@ -11,11 +11,17 @@ const Info = (props) => {
     <div className={style.wrapper}>
       <div className={`${style.info_row} row`}>
         <div className="col-lg-4 col-md-12">
-          <img
+          {props.img !== '' ? <img
             className={style.info_img}
             src={props.img}
             alt="Candidate Avatar"
-          ></img>
+          />
+            : <img
+              className={style.info_img}
+              src='https://cdn.shopify.com/s/files/1/0066/0032/7268/products/product-image-1045467446_1200x1200.jpg?v=1569937306'
+              alt="Candidate Avatar"
+            />}
+
         </div>
         <div className={`col-lg-4 col-md-6 ${style.name_and_email}`}>
           <p>
