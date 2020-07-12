@@ -37,6 +37,7 @@ class CreateReport extends React.Component {
 
   submitReport = () => {
     postReport(this.state);
+    this.props.history.push("/admin/reports");
   };
 
   prevStep = () => {

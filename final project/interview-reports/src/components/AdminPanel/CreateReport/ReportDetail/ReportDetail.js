@@ -18,6 +18,7 @@ const ReportDetail = ({
             <input
               className="col-lg-12"
               type="date"
+              max={new Date().toISOString().split("T")[0]}
               onChange={(e) => getInterviewDate(e.currentTarget)}
             ></input>
           </div>
