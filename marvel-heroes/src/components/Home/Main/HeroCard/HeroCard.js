@@ -11,7 +11,7 @@ const HeroCard = ({ name, avatar, id, addToMyTeam }) => {
       <h4>{name}</h4>
       <img src={avatar} alt="hero" />
       <div className="HeroCard__buttonWrapper row">
-       <Link to={`/info/${id}`}><button className="col-lg-3">Info</button></Link> 
+       <Link to={`/info/${id}`}><button className="col-lg-6">Info</button></Link> 
         <button onClick={() => addToMyTeam(id)}  data-id={id} className="col-lg-3">Add</button>
       </div>
     </div>
